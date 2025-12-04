@@ -1,4 +1,4 @@
-// Write a program to accept a string and accept on character and check whether that character is present in string or not
+// Write a program to accept a string and accept on character and count frequency of  character .
 
 #include<stdio.h>
 #include<stdbool.h>
