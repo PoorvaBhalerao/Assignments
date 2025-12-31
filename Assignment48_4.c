@@ -1,0 +1,83 @@
+//Consider Singly linear Linked list to solve following problems
+//Display Elements at even position
+//void DisplayEvenPosition(PNODE head);
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+typedef struct node NODE;
+typedef struct node * PNODE;
+typedef struct node ** PPNODE;
+
+void InsertFirst(PPNODE first, int no)
+{
+    PNODE newn = NULL;
+
+    newn =(PNODE)malloc(sizeof(NODE));
+    newn->data = no;
+    newn->next = NULL;
+
+    if(*first == NULL)
+    {
+        *first = newn;
+    }
+    else
+    {
+        newn->next = *first;
+        *first = newn;
+    }
+}
+
+void DisplayEvenPosition(PNODE first)
+{
+    int iPos = 1;
+    while(first != NULL)
+    {
+        if(iPos % 2 == 0)
+        {
+            printf("%d\t",first->data);
+        }
+        iPos++;
+        first = first->next;
+    }   
+}
+
+
+void Display(PNODE first)
+{
+    while(first != NULL)
+    {
+        printf("| %d | -> ",first->data);
+        first = first->next;
+    }
+    printf("NULL\n\n");
+}
+
+int main()
+{
+    PNODE head = NULL;
+    int iRet = 0;
+
+    InsertFirst(&head, 17);
+    InsertFirst(&head, 115);
+    InsertFirst(&head, 11);
+    InsertFirst(&head, 4750);
+    InsertFirst(&head, 65);
+    InsertFirst(&head, 48);
+    InsertFirst(&head, 305);
+    InsertFirst(&head, 12);
+    InsertFirst(&head, 45);
+
+    Display(head);
+
+    DisplayEvenPosition(head);
+
+
+    return 0;
+}
